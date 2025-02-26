@@ -432,6 +432,7 @@ dependencies = [
 [[package]]
 name = "dagger"
 version = "0.0.1"
+source = "git+https://github.com/srv1n/dagger#6d1f1121be151fb4ef178eb44045b9e2e291d51c"
 dependencies = [
  "anyhow",
  "async-broadcast",
