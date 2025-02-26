@@ -568,14 +568,13 @@ pub fn pubsub_agent(attr: TokenStream, item: TokenStream) -> TokenStream {
 
                         // Connect to source node if available - improved lookup
                         if !message.source.is_empty() {
-                            println!("Message source: {} and current agent id: {}", message.source, refit);
+                            
                             // Use more robust source node finding logic
                             if let Some(source_idx) = tree.node_indices().find(|idx|
                                 tree.node_weight(*idx).map_or(false, |node|
                                     node.node_id == message.source || node.message_id.as_ref() == Some(&message.source)
                                 )
                             ) {
-                                println!("Source index: {} and agent index: {}", source_idx.index(), agent_idx.index());
                                 tree.add_edge(
                                     source_idx,
                                     agent_idx,
